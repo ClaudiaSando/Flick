@@ -1,0 +1,26 @@
+/* Navbar */
+.navbar{
+    background-color: #04203f;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-sizing: border-box !important;
+}
+
+.nav-link,
+.navbar-brand{
+    padding: 20px;
+    color: #fff;
+}
+
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 30px;
+}
+
+.material-symbols-outlined{
+    color: #d0021b;
+    font-size: 30px;
+}
