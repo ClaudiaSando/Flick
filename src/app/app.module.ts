@@ -13,6 +13,10 @@ import { AboutComponent } from './about/about.component';
 import { BuscarComponent } from './buscar/buscar.component';
 import { CitasRegComponent } from './citas-reg/citas-reg.component';
 
+import { GoogleMapsModule } from '@angular/google-maps'
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { CitasRegComponent } from './citas-reg/citas-reg.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    GoogleMapsModule,   
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   exports: [
     CommonModule

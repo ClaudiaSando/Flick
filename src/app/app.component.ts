@@ -7,8 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'flick';
-
-  navcatalogo = 'catalogo';
-  navbuscar = 'buscar';
-  navabout = 'about';
+  opcion = '';
 }

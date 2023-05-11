@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 
 @Component({
   selector: 'app-catalogo',
@@ -8,21 +8,14 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CatalogoComponent implements OnInit {
 
-  inicio!: {navcatalogo: string};
+  menuopc!: string | null;
 
+  constructor(private route: ActivatedRoute) {}
 
-  constructor(private rutaActiva: ActivatedRoute) {}
-
-  ngOnInit() {
-    this.inicio = {
-      navcatalogo: this.rutaActiva.snapshot.params['navcatalogo'],
-    };
-    this.rutaActiva.params.subscribe(
-    (params: Params) => {
-    this.inicio['navcatalogo'] = params['navcatalogo'];
-    }
-    );
-   
-    }
+  ngOnInit(){
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.menuopc = params.get('opcion');
+    });
+  }
    
 }

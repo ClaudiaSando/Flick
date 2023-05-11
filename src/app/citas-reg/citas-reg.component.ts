@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 
 
 @Component({
@@ -7,23 +7,17 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './citas-reg.component.html',
   styleUrls: ['./citas-reg.component.css']
 })
-export class CitasRegComponent {
+export class CitasRegComponent implements OnInit{
 
-  inicio!: {navregcitas: string};
+  menuopc!: string | null;
 
+  constructor(private route: ActivatedRoute) {}
 
-  constructor(private rutaActiva: ActivatedRoute) {}
-
-  ngOnInit() {
-    this.inicio = {
-      navregcitas: this.rutaActiva.snapshot.params['navregcitas'],
-    };
-    this.rutaActiva.params.subscribe(
-    (params: Params) => {
-    this.inicio['navregcitas'] = params['navregcitas'];
-    }
-    );
+  ngOnInit(){
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.menuopc = params.get('opcion');
+    });
+  }
    
-    }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 
 
 @Component({
@@ -9,22 +9,17 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class BuscarComponent {
 
-  inicio!: {navbuscar: string};
 
+  menuopc!: string | null;
 
-  constructor(private rutaActiva: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
-    this.inicio = {
-      navbuscar: this.rutaActiva.snapshot.params['navbuscar'],
-    };
-    this.rutaActiva.params.subscribe(
-    (params: Params) => {
-    this.inicio['navbuscar'] = params['navbuscar'];
-    }
-    );
-   
-    }
+  ngOnInit(){
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.menuopc = params.get('opcion');
+    });
+  }
+  
    
 
 }
