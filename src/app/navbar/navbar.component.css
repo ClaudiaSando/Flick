@@ -20,6 +20,10 @@
     font-size: 30px;
 }
 
+.nav-link:hover{
+    color: #bbb;
+}
+
 .material-symbols-outlined{
     color: #d0021b;
     font-size: 30px;

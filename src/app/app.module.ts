@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
+import { MatBadgeModule } from '@angular/material/badge';
+import { FormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,10 +23,14 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    MatBadgeModule,
+    MatSlideToggleModule,
+    FormsModule
   ],
   exports: [
-    CommonModule
+    CommonModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
