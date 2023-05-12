@@ -11,22 +11,34 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { CatalogoComponent } from './catalago/catalago.component';
+import { AboutComponent } from './about/about.component';
+import { BuscarComponent } from './buscar/buscar.component';
+import { CitasRegComponent } from './citas-reg/citas-reg.component';
 
+import { GoogleMapsModule } from '@angular/google-maps'
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CatalogoComponent,
+    AboutComponent,
+    BuscarComponent,
+    CitasRegComponent
   ],
   imports: [
     BrowserModule,
+    GoogleMapsModule,
+    HttpClientModule,    
     AppRoutingModule,
     CommonModule,
     MatBadgeModule,
     MatSlideToggleModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     CommonModule,

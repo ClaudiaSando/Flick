@@ -1,0 +1,18 @@
+<p>{{menuopc}}</p>
+
+<h2 class="catalog-title">Vuelve a vivir la experiencia</h2>
+<h3 class="catalog-title">Traído por Cinema Kristal</h3>
+<h5 class="catalog-title">Oferta de Verano (Próximamente)</h5>
+
+<div class="card-columns">
+
+    <ng-container *ngFor="let movie of movies">
+        <div class="card">
+            <img [src]="movie.img" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            <h4><span class="badge badge-secondary">Proximamente</span></h4>
+        </div>    
+        </div>
+    </ng-container>
+</div>

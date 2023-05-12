@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
 export class MainComponent {
   
   
+  
+  
   posters: any = [
     {img: "../../assets/img/guardianes.jpg", titulo: "Guardianes Vol. 3", pagar: "Comprar"},
     {img: "../../assets/img/mario2.webp", titulo: "Super Mario Bros", pagar: "Comprar"},
@@ -19,6 +21,8 @@ export class MainComponent {
     {img: "../../assets/img/evil.jpg", titulo: "Evil Dead Rise", pagar: "Comprar"},
     {img: "../../assets/img/flash.webp", titulo: "The Flash", pagar: "Reservar"}
   ];
+
+  
 
   checkDate($event: any){
     $event.preventDefault();
