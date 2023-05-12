@@ -12,6 +12,12 @@ export class CatalogoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {}
 
+    mostrarAlert = true;
+
+      cerrarAlert() {
+        this.mostrarAlert = false;
+    }
+
   ngOnInit(){
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.menuopc = params.get('opcion');

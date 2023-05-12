@@ -8,10 +8,19 @@
   }
 
 .exito {
-    background-color: aquamarine;
+    background-color: #fbdfc0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.alert-success {
+  background-color: #fbdfc0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-color: #dbb381;
 }
   

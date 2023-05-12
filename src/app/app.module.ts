@@ -18,15 +18,13 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 /////Registro de citas/////
 import { ClientesService } from './clientes.service';
-import { FormsModule } from '@angular/forms';
 import { AltaClienteComponent } from './alta-cliente/alta-cliente.component';
 import { ListadoClientesComponent } from './listado-clientes/listado-clientes.component';
 import { RegistrarCitaComponent } from './registrar-cita/registrar-cita.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /////Video/////
 import { DomseguroPipe } from './domseguro.pipe';
-
-
 
 @NgModule({
   declarations: [
@@ -50,11 +48,11 @@ import { DomseguroPipe } from './domseguro.pipe';
     GoogleMapsModule,   
     HttpClientModule,
     HttpClientJsonpModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
-    CommonModule, /*Registro Citas*/AltaClienteComponent, ListadoClientesComponent/*Registro Citas*/
-  ],
+    CommonModule, /*Registro Citas*/AltaClienteComponent, ListadoClientesComponent,/*Registro Citas*/BrowserModule, FormsModule, ReactiveFormsModule /*Registro de Citas*/],
   providers: [ClientesService],
   bootstrap: [AppComponent]
 })

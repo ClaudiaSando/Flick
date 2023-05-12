@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente, Grupo } from '../cliente.model';
 import { ClientesService } from '../clientes.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-alta-cliente',
@@ -8,11 +10,21 @@ import { ClientesService } from '../clientes.service';
   styleUrls: ['./alta-cliente.component.css'],
 })
 export class AltaClienteComponent implements OnInit {
+  formulario: FormGroup;
   cliente!: Cliente;
   registro = false;
   grupos!: Grupo[];
 
-  constructor(private clientesService: ClientesService) {}
+  constructor(
+    private clientesService: ClientesService,
+    private formBuilder: FormBuilder
+  ) {
+    this.formulario = this.formBuilder.group({
+      nombre: ['', [Validators.required, Validators.minLength(3)]],
+      cif: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]*$')]],
+      direccion: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.registro = false;
@@ -21,9 +33,16 @@ export class AltaClienteComponent implements OnInit {
   }
 
   nuevoCliente(): void {
-    this.clientesService.agregarCliente(this.cliente);
-    console.log(this.cliente);
-    this.registro = true;
-    this.cliente = this.clientesService.nuevoCliente();
+    if (this.formulario.valid) {
+      const cliente: Cliente = {
+        id: this.clientesService.getClientes().length,
+        nombre: this.formulario.value.nombre,
+        cif: this.formulario.value.cif,
+        direccion: this.formulario.value.direccion,
+      };
+      this.clientesService.agregarCliente(cliente);
+      this.registro = true;
+    }
   }
+  
 }
