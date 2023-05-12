@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { MatBadgeModule } from '@angular/material/badge';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
@@ -18,6 +18,7 @@ import { CitasRegComponent } from './citas-reg/citas-reg.component';
 
 import { GoogleMapsModule } from '@angular/google-maps'
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     MatBadgeModule,
     MatSlideToggleModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,

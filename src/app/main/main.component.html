@@ -70,26 +70,40 @@
                                     <div class="pay-section">
                                         <h5>Seleccione la Fecha y hora</h5>
                                         <input type="datetime-local" #fecha [(ngModel)]="checkDate"
-                                        [ngModelOptions]="{standalone: true}">
-                                        <mat-slide-toggle color="primary">Recibir notificación de fecha</mat-slide-toggle>
-                                        <button type="btn" class="btn btn-primary" id="submit" (click)="onCheckDate(fecha.value)">Finalizar</button> 
+                                            [ngModelOptions]="{standalone: true}" required class="form-control">
+                                        <mat-slide-toggle color="primary">Recibir notificación de
+                                            fecha</mat-slide-toggle>
+                                        <button type="btn" class="btn btn-primary" id="submit"
+                                            (click)="onCheckDate(fecha.value)">Finalizar</button>
+                                        <div *ngIf="!click">
+                                            <div class="alert alert-secondary" role="alert">
+                                                Ingrese una fecha para continuar
+                                            </div>
+                                        </div>
+                                        <div *ngIf="libre && click">
+                                            <div class="alert alert-success" role="alert">
+                                                Fecha Disponible
+                                            </div>
+                                        </div>
+                                        <div *ngIf="!libre && click">
+                                            <div class="alert alert-danger" role="alert">
+                                                Fecha no disponible
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </ng-container>
-
-        <div class="link">
-            <a href="">Ver Todo</a>
-        </div>
     </section>
+
     <!-- Main Article -->
     <main class="main-art">
         <h2>¿Qué es Flick?</h2>
