@@ -1,0 +1,17 @@
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #134279;
+    color: aliceblue;
+  }
+
+.exito {
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+  

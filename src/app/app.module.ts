@@ -16,6 +16,16 @@ import { CitasRegComponent } from './citas-reg/citas-reg.component';
 import { GoogleMapsModule } from '@angular/google-maps'
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
+/////Registro de citas/////
+import { ClientesService } from './clientes.service';
+import { FormsModule } from '@angular/forms';
+import { AltaClienteComponent } from './alta-cliente/alta-cliente.component';
+import { ListadoClientesComponent } from './listado-clientes/listado-clientes.component';
+import { RegistrarCitaComponent } from './registrar-cita/registrar-cita.component';
+
+/////Video/////
+import { DomseguroPipe } from './domseguro.pipe';
+
 
 
 @NgModule({
@@ -27,7 +37,11 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     CatalogoComponent,
     AboutComponent,
     BuscarComponent,
-    CitasRegComponent
+    CitasRegComponent,
+    AltaClienteComponent,
+    ListadoClientesComponent,
+    RegistrarCitaComponent,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,
@@ -35,12 +49,14 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     CommonModule,
     GoogleMapsModule,   
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    FormsModule
   ],
   exports: [
-    CommonModule
+    CommonModule, /*Registro Citas*/AltaClienteComponent, ListadoClientesComponent/*Registro Citas*/
   ],
-  providers: [],
+  providers: [ClientesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class MainComponent {
+  video = 'GVPzGBvPrzw';
 
   posters: any = [
     {img: "../../assets/img/guardianes.jpg", titulo: "Guardianes Vol. 3", pagar: "Comprar"},
