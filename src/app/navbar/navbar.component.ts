@@ -10,4 +10,5 @@ export class NavbarComponent {
   navbuscar = 'buscar';
   navabout = 'about';
   navregcitas = 'citas-registradas';
+  navlogin='login'
 }
