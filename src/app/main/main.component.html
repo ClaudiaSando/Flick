@@ -62,19 +62,21 @@
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Completar Pago</h1>
                             </div>
                             <div class="modal-body">
-                                <form action="">
+                                <form [formGroup]="formulario">
+                                    <!-- Información de la película -->
                                     <div class="info-movie">
                                         <h4>{{poster.titulo}}</h4>
                                         <img [src]="poster.img" alt="">
                                     </div>
+                                    <!-- Sección de Pago -->
                                     <div class="pay-section">
                                         <h5>Seleccione la Fecha y hora</h5>
                                         <input type="datetime-local" #fecha [(ngModel)]="checkDate"
-                                            [ngModelOptions]="{standalone: true}" required class="form-control">
+                                            [ngModelOptions]="{standalone: true}" class="form-control">
                                         <mat-slide-toggle color="primary">Recibir notificación de
                                             fecha</mat-slide-toggle>
-                                        <button type="btn" class="btn btn-primary" id="submit"
-                                            (click)="onCheckDate(fecha.value)">Finalizar</button>
+                                        <button type="btn" class="btn btn-dark" id="submit"
+                                            (click)="onCheckDate(fecha.value)">Verificar</button>
                                         <div *ngIf="!click">
                                             <div class="alert alert-secondary" role="alert">
                                                 Ingrese una fecha para continuar
@@ -91,11 +93,57 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Sección de datos -->
+                                    <div class="reg-section">
+                                        <h5>Ingrese sus datos</h5>
+                                        <div>
+                                            <span>Nombre:</span>
+                                            <input type="text" formControlName="nombre" class="form-control" id="nombre"
+                                                [ngClass]="{'is-invalid': formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched}" />
+                                            <div
+                                                *ngIf="formulario.controls['nombre'].touched && formulario.controls['nombre'].invalid">
+                                                <div *ngIf="formulario.controls['nombre'].errors?.['required']">El
+                                                    nombre es requerido.</div>
+                                                <div *ngIf="formulario.controls['nombre'].errors?.['minlength']">El
+                                                    nombre debe tener al menos 3 caracteres.</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span>ID:</span>
+                                            <input type="text" formControlName="cif" class="form-control" id="cif"
+                                                [ngClass]="{'is-invalid': formulario.controls['cif'].invalid && formulario.controls['cif'].touched}" />
+                                            <div
+                                                *ngIf="formulario.controls['cif'].touched && formulario.controls['cif'].invalid">
+                                                <div *ngIf="formulario.controls['cif'].errors?.['required']">El ID es
+                                                    requerido.</div>
+                                                <div *ngIf="formulario.controls['cif'].errors?.['pattern']">El ID solo
+                                                    puede contener caracteres alfanuméricos.</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span>Dirección:</span>
+                                            <input type="text" formControlName="direccion" class="form-control"
+                                                id="direccion"
+                                                [ngClass]="{'is-invalid': formulario.controls['direccion'].invalid && formulario.controls['direccion'].touched}" />
+                                            <div
+                                                *ngIf="formulario.controls['direccion'].touched && formulario.controls['direccion'].invalid">
+                                                <div *ngIf="formulario.controls['direccion'].errors?.['required']">
+                                                    La dirección es requerida.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button [disabled]="formulario.invalid" (click)="nuevoCliente()"
+                                                class="btn btn-primary" data-bs-dismiss="modal">
+                                                Finalizar
+                                            </button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
+                                    data-bs-dismiss="modal" >Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -103,14 +151,26 @@
             </div>
         </ng-container>
     </section>
-
+    
+    <!-- Modal de completado -->
+    <div class="modal" tabindex="-1" id="modalFinal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <p>Disfrute su película</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <!-- Main Article -->
     <main class="main-art">
         <h2>¿Qué es Flick?</h2>
         <p>Flick es tu página de confianza para comprar o reservar tus boletos de las películas más populares del
             momento. Contamos con el apoyo de 15 cines alrededor de todo México. En Flick puedes encontrar descuentos y
             otras sorpresas para que tu experiencia sea más satisfactoria y sencilla.</p>
-
     </main>
 
     <section class="sponsors">

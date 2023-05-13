@@ -118,6 +118,10 @@
 }
 
 /* Modal */
+.modal-content{
+  width: 850px;
+}
+
 .modal-header,
 .modal-body {
   color: #04203f;
@@ -129,8 +133,10 @@
 }
 
 .modal-body form {
+  
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
 }
 
 .modal-body div {
@@ -143,4 +149,12 @@
 
 .pay-section {
   gap: 20px !important;
+}
+
+.reg-section {
+  gap: 10px !important;
+}
+
+#modalFinal .modal-content{
+  width: 500px;
 }

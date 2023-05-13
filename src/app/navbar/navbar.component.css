@@ -9,8 +9,13 @@
 
 .nav-link,
 .navbar-brand{
-    padding: 20px;
+    padding: 10px 20px;
     color: #fff;
+}
+
+.login{
+    background-color: #d0021b;
+    border-radius: 15px;
 }
 
 .navbar-brand{

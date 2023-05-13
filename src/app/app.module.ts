@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { CitasRegComponent } from './citas-reg/citas-reg.component';
 
 import { GoogleMapsModule } from '@angular/google-maps'
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     CatalogoComponent,
     AboutComponent,
     BuscarComponent,
-    CitasRegComponent
+    CitasRegComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,11 +43,13 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     MatBadgeModule,
     MatSlideToggleModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltipModule
   ],
   exports: [
     CommonModule,
     MatBadgeModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
