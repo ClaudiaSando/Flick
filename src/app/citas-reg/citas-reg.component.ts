@@ -1,29 +1,19 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
+import { ClientesService, Cliente } from '../clientes.service';
 
 @Component({
   selector: 'app-citas-reg',
   templateUrl: './citas-reg.component.html',
   styleUrls: ['./citas-reg.component.css']
 })
-export class CitasRegComponent {
+export class CitasRegComponent implements OnInit{
+  clientes!: Cliente[] | undefined;
 
-  inicio!: {navregcitas: string};
-
-
-  constructor(private rutaActiva: ActivatedRoute) {}
+  constructor(private clientesService: ClientesService) { }
 
   ngOnInit() {
-    this.inicio = {
-      navregcitas: this.rutaActiva.snapshot.params['navregcitas'],
-    };
-    this.rutaActiva.params.subscribe(
-    (params: Params) => {
-    this.inicio['navregcitas'] = params['navregcitas'];
-    }
-    );
-   
-    }
+    this.clientes = this.clientesService.getClientes();
+  }
 
 }

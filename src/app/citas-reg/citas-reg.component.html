@@ -1,1 +1,23 @@
-<p>{{inicio.navregcitas}}</p>
+<div class="contenedor">
+    <h2>Citas registradas</h2>
+    <div *ngIf="!clientes?.length">No hay clientes por el momento</div>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Id</th>
+            <th>Direccion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.cif }}</td>
+            <td>{{ cliente.direccion }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -1,0 +1,18 @@
+<p>{{menuopc}}</p>
+
+<h2 class="catalog-title">Vuelve a vivir la experiencia</h2>
+<h3 class="catalog-title">Traído por Cinema Kristal</h3>
+<h5 class="catalog-title">Oferta de Verano (Próximamente)</h5>
+
+<div class="card-columns">
+<!-- cambia esto de aqui completito -->
+    <ng-container *ngFor="let movie of pelis.results"> 
+        <div class="card">
+            <img src="http://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{movie.poster_path}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            <h4><span class="badge badge-secondary" matTooltip="Éstas películas llegan hasta Julio 2023">Proximamente</span></h4>
+        </div>    
+        </div>
+    </ng-container>
+</div>
