@@ -13,20 +13,20 @@
     color: #fff;
 }
 
-.login{
-    width: 600px;
-    background-color: red;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row-reverse;
-}
 .navbar-brand{
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 30px;
 }
+.conte{
+    display: flex;
+    flex-direction: row-reverse;
 
+    background-color: #d0021b;
+    border-radius: 20px;
+    width: 500px;
+}
 .material-symbols-outlined{
     color: #d0021b;
     font-size: 30px;

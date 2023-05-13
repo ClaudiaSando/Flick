@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'inicio/:navregcitas', component: CitasRegComponent },
   { path: 'inicio/:navlogin', component: LoginComponent },
   { path: "", redirectTo: "/inicio", pathMatch: "full"},// Cuando es la raíz
-  { path: "**", redirectTo: "/inicio"}
+  { path: "**", redirectTo: "/inicio"},
 ];
 
 @NgModule({

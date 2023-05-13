@@ -26,11 +26,12 @@
                 </li>
             </ul>
         </div>
-        <div class="login">
-            <h6 hidden>Inicio sesion: </h6>
+        <div class="conte">
+            <h1 hidden>Inicio sesion: </h1>
+            <a class="nav-link" aria-current="page" [routerLink]="['/inicio', navlogin]">Inicio</a>
+            <a class="nav-link" routerLink="/inicio/" routerLinkActive="active" ariaCurrentWhenActive="page">Pinche Login</a>
             <a class="nav-link" [routerLink]="['/inicio', navlogin]">Registrarse</a>
-            <a class="nav-link" [routerLink]="['/inicio', navlogin]">Iniciar Sesion</a>
+            <a class="nav-link" [routerLink]="['/inicio', navlogin]">Login</a>
         </div>
     </div>
-
 </nav>

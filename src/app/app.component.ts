@@ -11,5 +11,4 @@ export class AppComponent {
   navcatalogo = 'catalogo';
   navbuscar = 'buscar';
   navabout = 'about';
-  navlogin='login';
 }

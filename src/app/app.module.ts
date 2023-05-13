@@ -12,7 +12,6 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 import { AboutComponent } from './about/about.component';
 import { BuscarComponent } from './buscar/buscar.component';
 import { CitasRegComponent } from './citas-reg/citas-reg.component';
-import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -24,8 +23,7 @@ import { LoginComponent } from './login/login.component';
     CatalogoComponent,
     AboutComponent,
     BuscarComponent,
-    CitasRegComponent,
-    LoginComponent
+    CitasRegComponent
   ],
   imports: [
     BrowserModule,
