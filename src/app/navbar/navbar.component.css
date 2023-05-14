@@ -9,8 +9,13 @@
 
 .nav-link,
 .navbar-brand{
-    padding: 20px;
+    padding: 10px 20px;
     color: #fff;
+}
+
+.login{
+    background-color: #d0021b;
+    border-radius: 15px;
 }
 
 .navbar-brand{
@@ -20,7 +25,15 @@
     font-size: 30px;
 }
 
+.nav-link:hover{
+    color: #bbb;
+}
+
 .material-symbols-outlined{
     color: #d0021b;
     font-size: 30px;
+}
+
+.logo{
+    width: 50px;
 }
