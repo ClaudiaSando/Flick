@@ -13,7 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { BuscarComponent } from './buscar/buscar.component';
 import { CitasRegComponent } from './citas-reg/citas-reg.component';
 
-import { GoogleMapsModule } from '@angular/google-maps'
+import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 /////Registro de citas/////
