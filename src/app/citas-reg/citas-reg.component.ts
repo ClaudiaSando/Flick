@@ -9,11 +9,15 @@ import { ClientesService, Cliente } from '../clientes.service';
 })
 export class CitasRegComponent implements OnInit{
   clientes!: Cliente[] | undefined;
-
+  clieDes: any = localStorage.getItem("clieDes") || [];
   constructor(private clientesService: ClientesService) { }
 
   ngOnInit() {
     this.clientes = this.clientesService.getClientes();
+    if(this.clieDes.length > 0){
+      this.clieDes = JSON.parse(this.clieDes);
+    }
   }
 
+  
 }

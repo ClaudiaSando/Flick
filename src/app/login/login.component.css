@@ -153,3 +153,9 @@
   .credits a:hover {
     opacity: 1;
   }
+
+  .text{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }

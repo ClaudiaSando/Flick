@@ -6,8 +6,9 @@
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Id</th>
-            <th>Direccion</th>
+            <th>Boletos</th>
+            <th>Cine</th>
+            <th>Fecha Ocupada</th>
           </tr>
         </thead>
         <tbody>
@@ -15,9 +16,33 @@
             <td>{{ cliente.nombre }}</td>
             <td>{{ cliente.cif }}</td>
             <td>{{ cliente.direccion }}</td>
+            <td>{{ cliente.fecha }}</td>
           </tr>
         </tbody>
       </table>
     </div>
+    <h2>Citas con Descuento</h2>
+    <div *ngIf="!clieDes?.length">No hay clientes con descuento</div>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Boletos</th>
+            <th>Cine</th>
+            <th>Fecha Ocupada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clieDes">
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.cif}}</td>
+            <td>{{cliente.direccion}}</td>
+            <td>{{cliente.fecha}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>  
+    
   </div>
   

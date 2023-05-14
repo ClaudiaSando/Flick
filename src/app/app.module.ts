@@ -6,7 +6,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatIcon, MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -20,6 +20,7 @@ import { CitasRegComponent } from './citas-reg/citas-reg.component';
 import { GoogleMapsModule } from '@angular/google-maps'
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { BuscarHijoComponent } from './buscar-hijo/buscar-hijo.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { LoginComponent } from './login/login.component';
     BuscarComponent,
     CitasRegComponent,
     LoginComponent,
+    BuscarHijoComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { LoginComponent } from './login/login.component';
     MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatIconModule
   ],
   exports: [
     CommonModule,

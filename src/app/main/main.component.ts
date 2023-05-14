@@ -10,6 +10,10 @@ import { Modal } from 'bootstrap';
   styleUrls: ['./main.component.css'],
 })
 export class MainComponent implements OnInit{
+  // Variables de Mensaje
+  mensaje: string = "";
+  clieDes: any = localStorage.getItem("clieDes") || []; 
+
   // Variables de servicio
   cliente!: Cliente;
   registro = false;
@@ -17,6 +21,7 @@ export class MainComponent implements OnInit{
 
   // Formulario
   formulario: FormGroup;
+  nombreUsr:string = localStorage.getItem("usuarioActual") || "";
 
   // Variables confirmación fecha
   libre: boolean = true;
@@ -67,7 +72,7 @@ export class MainComponent implements OnInit{
   // Constructor Servicio y validación formulario
   constructor(private clientesService: ClientesService, private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
-      nombre: ['', [Validators.required, Validators.minLength(3)]],
+      nombre: [this.nombreUsr, [Validators.required, Validators.minLength(3)]],
       cif: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]*$')]],
       direccion: ['', Validators.required],
     });
@@ -77,6 +82,7 @@ export class MainComponent implements OnInit{
     this.registro = false;
     this.cliente = this.clientesService.nuevoCliente();
     this.grupos = this.clientesService.getGrupos();
+    localStorage.setItem("usuarioActual", "");
   }
 
   checkDate($event: any) {
@@ -116,32 +122,64 @@ export class MainComponent implements OnInit{
 
   nuevoCliente(): void {
 
-    if(this.listaDeFechas.length > 0){
-      this.listaDeFechas = JSON.parse(this.listaDeFechas);
-    }
+    console.log(this.nuevaFecha);
     
-    let fechaRegistrada = {
-      fecha: this.nuevaFecha
-    }
-    console.log(fechaRegistrada);
-    
+    if(this.nuevaFecha === "" || this.libre == false || this.click == false){
+      this.dateModal();
 
-    this.listaDeFechas.push(fechaRegistrada);
-    localStorage.setItem("fechasOcupadas",JSON.stringify(this.listaDeFechas));
-
-    if (this.formulario?.valid) {
-      const cliente: Cliente = {
-        id: this.clientesService.getClientes()?.length,
-        nombre: this.formulario.value.nombre,
-        cif: this.formulario.value.cif,
-        direccion: this.formulario.value.direccion,
+    }else{
+      
+      if(this.listaDeFechas.length > 0){
+        this.listaDeFechas = JSON.parse(this.listaDeFechas);
+      }
+      
+      let fechaRegistrada = {
         fecha: this.nuevaFecha
-      };
-      this.clientesService.agregarCliente(cliente);
-      this.registro = true;
-      this.openFinalModal();
+      }
+      console.log(fechaRegistrada);
+      
+  
+      this.listaDeFechas.push(fechaRegistrada);
+      localStorage.setItem("fechasOcupadas",JSON.stringify(this.listaDeFechas));
+  
+      if (this.formulario?.valid) {
+        const cliente: Cliente = {
+          id: this.clientesService.getClientes()?.length,
+          nombre: this.formulario.value.nombre,
+          cif: this.formulario.value.cif,
+          direccion: this.formulario.value.direccion,
+          fecha: this.nuevaFecha
+        };
+        this.clientesService.agregarCliente(cliente);
+        this.registro = true;
+        if(this.formulario.value.cif > 4){
 
+          if(this.clieDes.length > 0){
+            this.clieDes = JSON.parse(this.clieDes);
+          }
+
+          const clienteEspecial = {
+            nombre:this.formulario.value.nombre,
+            cif: this.formulario.value.cif,
+            direccion: this.formulario.value.direccion,
+            fecha: this.nuevaFecha
+          }
+
+          this.clieDes.push(clienteEspecial);
+          localStorage.setItem("clieDes", JSON.stringify(this.clieDes));
+          this.mensaje = `Felicidades. Por su compra de ${this.formulario.value.cif} boletos. Usted tendrá un descuento especial (Puede consulitarlo en la tabla de fechas registradas)`;
+        }
+        this.openFinalModal();
+  
+      }
     }
+
+  }
+
+  dateModal():void{
+    const fechaModalElemento = document.getElementById("fechaModal") as HTMLElement;
+    const fechaModal = new Modal(fechaModalElemento);
+    fechaModal.show()
   }
 
   openFinalModal():void{
