@@ -32,4 +32,9 @@ export class NavbarComponent {
 
   }
   
+
+  navcatalogo = 'catalogo';
+  navbuscar = 'buscar';
+  navabout = 'about';
+  navregcitas = 'citas-registradas';
 }

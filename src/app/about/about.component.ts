@@ -11,6 +11,8 @@ interface MarkerProperties {
     lng: number;
   }
 };
+import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -49,5 +51,22 @@ export class AboutComponent {
     { position: { lat: 21.8803200, lng: -102.262268 }} // Cinepolis espacio siuuu
   ];
 
+
+  inicio!: {navabout: string};
+
+
+  constructor(private rutaActiva: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.inicio = {
+      navabout: this.rutaActiva.snapshot.params['navabout'],
+    };
+    this.rutaActiva.params.subscribe(
+    (params: Params) => {
+    this.inicio['navabout'] = params['navabout'];
+    }
+    );
+   
+    }
 
 }
