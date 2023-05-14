@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,11 +12,8 @@ export class LoginComponent {
   usuarios: any = localStorage.getItem("usuarios") || [];
   formulario: FormGroup;
   iniciada: boolean = false;
-
   menuopc!: string | null;
-
-
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute){
     this.formulario = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       contra: ['', [Validators.required, Validators.minLength(3)]]
