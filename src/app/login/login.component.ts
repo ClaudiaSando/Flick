@@ -1,6 +1,7 @@
 import { useAnimation } from '@angular/animations';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 
 @Component({
@@ -13,11 +14,20 @@ export class LoginComponent {
   formulario: FormGroup;
   iniciada: boolean = false;
 
-  constructor(private formBuilder: FormBuilder){
+  menuopc!: string | null;
+
+
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder){
     this.formulario = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       contra: ['', [Validators.required, Validators.minLength(3)]]
     })
+  }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.menuopc = params.get('opcion');
+    });
   }
 
   iniciarSesion(): void{

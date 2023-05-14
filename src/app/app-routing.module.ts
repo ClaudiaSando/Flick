@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'inicio/buscar', component: BuscarComponent },
   { path: 'inicio/about', component: AboutComponent },
   { path: 'inicio/citas-registradas', component: CitasRegComponent },
-  { path: 'inicio/login', component: LoginComponent}
+  { path: 'inicio/:opcion', component: LoginComponent}
 ];
 
 @NgModule({
