@@ -8,18 +8,17 @@ import { ActivatedRoute, ParamMap } from '@angular/router'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
   usuarios: any = localStorage.getItem("usuarios") || [];
-  opcion! : string | null;
+  opcion!: string | null;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(){
-
+    
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.opcion = params.get('opcion');
     });
-    
+
     if (this.usuarios == null){
       this.opcion = 'No se encuentran usuarios actualmente';
     }
@@ -28,13 +27,6 @@ export class NavbarComponent {
       this.opcion = 'Hay usuarios registrados';
     }
     console.log(this.opcion);
-
-
   }
   
-
-  navcatalogo = 'catalogo';
-  navbuscar = 'buscar';
-  navabout = 'about';
-  navregcitas = 'citas-registradas';
 }

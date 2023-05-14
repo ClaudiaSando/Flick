@@ -23,8 +23,4 @@ export class AppComponent implements OnInit{
   
 
 
-
-  navcatalogo = 'catalogo';
-  navbuscar = 'buscar';
-  navabout = 'about';
 }
